@@ -13,4 +13,4 @@ Make your password as strong as a Super Saiyan!
 
 ## Screenshot
 
-<img src="https://github.com/R4YLx/password-generator/blob/main/assets/pg-scrn.png" width="50%"">
+<img src="https://github.com/R4YLx/password-generator/blob/main/assets/pg-scrn.png" width="50%">
