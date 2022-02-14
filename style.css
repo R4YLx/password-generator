@@ -36,7 +36,8 @@ p {
 .passwordContainer {
 	background-color: var(--text-clr);
 	display: flex;
-	flex-direction: row-reverse;
+	justify-content: space-between;
+	/* flex-direction: row-reverse; */
 	border-radius: 0.25rem;
 	padding: 0.25rem;
 	margin: 1rem 0rem 0rem 0rem;

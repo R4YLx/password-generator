@@ -23,8 +23,38 @@ generateBtnEl.addEventListener('click', () => {
 	let includeNumber = pNumbersEl.checked;
 	let includeSymbol = pSymbolsEl.checked;
 
-	console.log(length, includeUpper, includeLower, includeNumber, includeSymbol);
+	passwordEl.innerText = generatePassword(
+		length,
+		includeUpper,
+		includeLower,
+		includeNumber,
+		includeSymbol
+	);
 });
+
+// Generates password
+const generatePassword = (length, getUpper, getLower, getNumber, getSymbol) => {
+	let generatedPassword = '';
+	// Filters inputs
+	const inputChecked = getUpper + getLower + getNumber + getSymbol;
+
+	// Filters which input is checked or unchecked
+	const inputArray = [
+		{ getUpper },
+		{ getLower },
+		{ getNumber },
+		{ getSymbol },
+	].filter(input => Object.values(input)[0]);
+
+	// if no input is checked, don't generate pw
+	if (inputChecked === 0) {
+		return '';
+	}
+
+	// Loops over length
+
+	// Final password
+};
 
 /**
  * Functions for generating parameters using ASCII
@@ -66,11 +96,4 @@ const getSymbol = () => {
 		"'",
 	];
 	return specialChars[Math.floor(Math.random() * specialChars.length)];
-};
-
-const generate = {
-	lower: getLower,
-	upper: getUpper,
-	number: getNumber,
-	symbol: getSymbol,
 };
