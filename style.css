@@ -1,12 +1,13 @@
 :root {
-	--primary-clr: #283618;
-	--secondary-clr: #606c38;
+	--primary-clr: #2d2e2e;
+	--secondary-clr: #716969;
 	--text-clr: #ffff;
 }
 
 body {
 	background-color: var(--secondary-clr);
 	color: var(--text-clr);
+	font-family: 'Poppins', sans-serif;
 }
 
 .container {
@@ -24,17 +25,19 @@ body {
 	display: flex;
 	flex-direction: row-reverse;
 	border-radius: 0.25rem;
+	padding: 0.25rem;
 }
 
 .settings {
-	padding: 2rem 0rem 2rem 0rem;
+	padding: 1rem 0rem 1rem 0rem;
+	font-weight: 300;
 }
 
 .setting {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0.25rem;
+	padding: 0.5rem;
 }
 
 button {
@@ -55,7 +58,14 @@ input {
 	align-items: center;
 }
 
+.copyBtn {
+	padding: 1.25rem;
+}
+
 #generate {
 	width: 100%;
 	padding: 1rem 0rem 1rem 0rem;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+	font-size: 1.25rem;
 }
