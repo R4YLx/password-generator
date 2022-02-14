@@ -1,20 +1,20 @@
 :root {
-	--primary-clr: #2d2e2e;
-	--secondary-clr: #716969;
+	--primary-clr: #2d6a4f;
+	--secondary-clr: #40916c;
 	--text-clr: #ffff;
+	--bg-primary-clr: #b7e4c7;
 }
 
 body {
-	background-color: var(--secondary-clr);
+	background-color: var(--bg-primary-clr);
 	color: var(--text-clr);
 	font-family: 'Poppins', sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .container {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
 	background-color: var(--primary-clr);
 	padding: 2rem;
 	border-radius: 0.5rem;
@@ -59,7 +59,11 @@ input {
 }
 
 .copyBtn {
-	padding: 1.25rem;
+	padding: 0.5rem;
+}
+
+.copyBtn img {
+	max-width: 1.25rem;
 }
 
 #generate {
