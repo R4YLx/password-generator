@@ -10,8 +10,10 @@ body {
 	color: var(--text-clr);
 	font-family: 'Poppins', sans-serif;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	min-height: 100vh;
 }
 
 .container {
