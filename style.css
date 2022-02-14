@@ -16,6 +16,16 @@ body {
 	min-height: 100vh;
 }
 
+h1 {
+	margin: 0;
+}
+
+p {
+	font-style: italic;
+	font-weight: 300;
+	margin-top: 0;
+}
+
 .container {
 	background-color: var(--primary-clr);
 	padding: 2rem;
@@ -28,6 +38,7 @@ body {
 	flex-direction: row-reverse;
 	border-radius: 0.25rem;
 	padding: 0.25rem;
+	margin: 1rem 0rem 0rem 0rem;
 }
 
 .settings {
@@ -39,7 +50,7 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0.5rem;
+	padding: 0.5rem 0rem 0.5rem 0rem;
 }
 
 button {
