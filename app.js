@@ -12,6 +12,21 @@ const pSymbolsEl = document.querySelector('#symbols');
 const generateBtnEl = document.querySelector('#generate');
 
 /**
+ * Click events
+ */
+
+// Click event for 'Generate' button
+generateBtnEl.addEventListener('click', () => {
+	let length = Number(pLengthEl.value);
+	let includeUpper = pUpperEl.checked;
+	let includeLower = pLowerEl.checked;
+	let includeNumber = pNumbersEl.checked;
+	let includeSymbol = pSymbolsEl.checked;
+
+	console.log(length, includeUpper, includeLower, includeNumber, includeSymbol);
+});
+
+/**
  * Functions for generating parameters using ASCII
  */
 
