@@ -2,6 +2,15 @@
  * DOM elements
  */
 
+const passwordEl = document.querySelector('#password');
+const copyBtnEl = document.querySelector('.copyBtn');
+const pLengthEl = document.querySelector('#length');
+const pUpperEl = document.querySelector('#uppercase');
+const pLowerEl = document.querySelector('#lowercase');
+const pNumbersEl = document.querySelector('#numbers');
+const pSymbolsEl = document.querySelector('#symbols');
+const generateBtnEl = document.querySelector('#generate');
+
 /**
  * Functions for generating parameters using ASCII
  */
@@ -16,13 +25,13 @@ const getUpper = () => {
 	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 };
 
-// Generates numbers
-const getNumbers = () => {
+// Generates number
+const getNumber = () => {
 	return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 };
 
-// Generates symbols
-const getSymbols = () => {
+// Generates symbol
+const getSymbol = () => {
 	const specialChars = [
 		'@',
 		'$',
@@ -44,4 +53,9 @@ const getSymbols = () => {
 	return specialChars[Math.floor(Math.random() * specialChars.length)];
 };
 
-console.log(getSymbols());
+const generate = {
+	lower: getLower,
+	upper: getUpper,
+	number: getNumber,
+	symbol: getSymbol,
+};

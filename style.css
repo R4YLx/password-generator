@@ -70,7 +70,7 @@ input {
 	cursor: pointer;
 }
 
-.lgBtn {
+.lgBtnDiv {
 	display: flex;
 	justify-content: center;
 	align-items: center;
