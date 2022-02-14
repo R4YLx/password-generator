@@ -1,6 +1,61 @@
+:root {
+	--primary-clr: #283618;
+	--secondary-clr: #606c38;
+	--text-clr: #ffff;
+}
+
+body {
+	background-color: var(--secondary-clr);
+	color: var(--text-clr);
+}
+
 .container {
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	background-color: var(--primary-clr);
+	padding: 2rem;
+	border-radius: 0.5rem;
+}
+
+.passwordContainer {
+	background-color: var(--text-clr);
+	display: flex;
+	flex-direction: row-reverse;
+	border-radius: 0.25rem;
+}
+
+.settings {
+	padding: 2rem 0rem 2rem 0rem;
+}
+
+.setting {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.25rem;
+}
+
+button {
+	background-color: var(--secondary-clr);
+	border-radius: 0.25rem;
+	border-style: none;
+	color: var(--text-clr);
+}
+
+button,
+input {
+	cursor: pointer;
+}
+
+.lgBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#generate {
+	width: 100%;
+	padding: 1rem 0rem 1rem 0rem;
 }
