@@ -12,51 +12,6 @@ const pSymbolsEl = document.querySelector('#symbols');
 const generateBtnEl = document.querySelector('#generate');
 
 /**
- * Click events
- */
-
-// Click event for 'Generate' button
-generateBtnEl.addEventListener('click', () => {
-	let length = Number(pLengthEl.value);
-	let includeUpper = pUpperEl.checked;
-	let includeLower = pLowerEl.checked;
-	let includeNumber = pNumbersEl.checked;
-	let includeSymbol = pSymbolsEl.checked;
-
-	passwordEl.innerText = generatePassword(
-		length,
-		includeUpper,
-		includeLower,
-		includeNumber,
-		includeSymbol
-	);
-});
-
-// Generates password
-const generatePassword = (length, getUpper, getLower, getNumber, getSymbol) => {
-	let generatedPassword = '';
-	// Filters inputs
-	const inputChecked = getUpper + getLower + getNumber + getSymbol;
-
-	// Filters which input is checked or unchecked
-	const inputArray = [
-		{ getUpper },
-		{ getLower },
-		{ getNumber },
-		{ getSymbol },
-	].filter(input => Object.values(input)[0]);
-
-	// if no input is checked, don't generate pw
-	if (inputChecked === 0) {
-		return '';
-	}
-
-	// Loops over length
-
-	// Final password
-};
-
-/**
  * Functions for generating parameters using ASCII
  */
 
@@ -97,3 +52,43 @@ const getSymbol = () => {
 	];
 	return specialChars[Math.floor(Math.random() * specialChars.length)];
 };
+
+/**
+ * Click events
+ */
+
+// Click event for 'Generate' button
+generateBtnEl.addEventListener('click', () => {
+	const length = Number(pLengthEl.value);
+	const includeUpper = pUpperEl.checked;
+	const includeLower = pLowerEl.checked;
+	const includeNumber = pNumbersEl.checked;
+	const includeSymbol = pSymbolsEl.checked;
+
+	const password = generatePassword(
+		length,
+		includeUpper,
+		includeLower,
+		includeNumber,
+		includeSymbol
+	);
+
+	passwordEl.innerText = password;
+
+	console.log(includeUpper, includeLower, includeNumber, includeSymbol);
+});
+
+// Generates password
+const generatePassword = (
+	length,
+	includeUpper,
+	includeNumber,
+	includeSymbol
+) => {
+	// Loops over length
+	let characters = getLower;
+	if (includeUpper) getLower;
+
+	// Final password
+};
+console.log(generatePassword());
