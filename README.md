@@ -4,7 +4,7 @@ Try out my [Password Generator](https://rays-password-generator.netlify.app/)
 
 Make your password as strong as a Super Saiyan!
 
-**Note: I'm still trying to improve my script. Feedback are welcome!**
+_Note: I'm still trying to improve my script. Feedback are welcome!_
 
 ## Languages and tools
 
