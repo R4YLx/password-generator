@@ -12,83 +12,92 @@ const pSymbolsEl = document.querySelector('#symbols');
 const generateBtnEl = document.querySelector('#generate');
 
 /**
- * Functions for generating parameters using ASCII
+ * Function for generating parameters using ASCII
+ * https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/ASCII-Table.svg/1261px-ASCII-Table.svg.png
  */
 
-// Generates lowercase
-const getLower = () => {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+// Function for getting ASCII characters
+const getCharsForArray = (first, last) => {
+	const array = [];
+	for (let i = first; i <= last; i++) {
+		array.push(i);
+	}
+	return array;
 };
+
+// Generates lowercase
+const getLower = getCharsForArray(97, 122);
 
 // Generates uppercase
-const getUpper = () => {
-	return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-};
+const getUpper = getCharsForArray(65, 90);
 
 // Generates number
-const getNumber = () => {
-	return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-};
+const getNumber = getCharsForArray(48, 57);
 
 // Generates symbol
-const getSymbol = () => {
-	const specialChars = [
-		'@',
-		'$',
-		'%',
-		'*',
-		'^',
-		'<',
-		'>',
-		'?',
-		'!',
-		'(',
-		')',
-		'[',
-		']',
-		'{',
-		'}',
-		"'",
-	];
-	return specialChars[Math.floor(Math.random() * specialChars.length)];
+const getSymbol = getCharsForArray(33, 47).concat(
+	getCharsForArray(58, 64)
+		.concat(getCharsForArray(91, 96))
+		.concat(getCharsForArray(123, 126))
+);
+
+/**
+ * Generates final password
+ */
+
+const generatePassword = (
+	length,
+	includeUpper,
+	includeLower,
+	includeNumber,
+	includeSymbol
+) => {
+	let charCodes = getLower;
+	let inputs = includeUpper + includeLower + includeNumber + includeSymbol;
+	if (includeUpper) charCodes = charCodes.concat(getUpper);
+	if (includeSymbol) charCodes = charCodes.concat(getSymbol);
+	if (includeNumber) charCodes = charCodes.concat(getNumber);
+	if (inputs === 0) {
+		return '';
+	}
+
+	const passwordCharacters = [];
+	for (let i = 0; i < length; i++) {
+		const characterCode =
+			charCodes[Math.floor(Math.random() * charCodes.length)];
+		passwordCharacters.push(String.fromCharCode(characterCode));
+	}
+	return passwordCharacters.join('');
 };
 
 /**
  * Click events
  */
 
-// Click event for 'Generate' button
+// Generates password
 generateBtnEl.addEventListener('click', () => {
 	const length = Number(pLengthEl.value);
-	const includeUpper = pUpperEl.checked;
-	const includeLower = pLowerEl.checked;
-	const includeNumber = pNumbersEl.checked;
-	const includeSymbol = pSymbolsEl.checked;
+	const includeUppers = pUpperEl.checked;
+	const includeLowers = pLowerEl.checked;
+	const includeNumbers = pNumbersEl.checked;
+	const includeSymbols = pSymbolsEl.checked;
 
 	const password = generatePassword(
 		length,
-		includeUpper,
-		includeLower,
-		includeNumber,
-		includeSymbol
+		includeUppers,
+		includeLowers,
+		includeNumbers,
+		includeSymbols
 	);
 
 	passwordEl.innerText = password;
-
-	console.log(includeUpper, includeLower, includeNumber, includeSymbol);
 });
 
-// Generates password
-const generatePassword = (
-	length,
-	includeUpper,
-	includeNumber,
-	includeSymbol
-) => {
-	// Loops over length
-	let characters = getLower;
-	if (includeUpper) getLower;
+// Copy to clipboard
+copyBtnEl.addEventListener('click', () => {
+	const clipboard = navigator.clipboard;
 
-	// Final password
-};
-console.log(generatePassword());
+	clipboard
+		.writeText(passwordEl.innerText)
+		.then(() => alert('Password has been copied to clipboard'));
+});

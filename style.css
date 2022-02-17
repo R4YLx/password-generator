@@ -25,6 +25,10 @@ p {
 	margin-top: 0;
 }
 
+#password {
+	color: #000000;
+}
+
 .container {
 	background-color: var(--primary-clr);
 	padding: 2rem;
@@ -35,9 +39,9 @@ p {
 	background-color: var(--text-clr);
 	display: flex;
 	justify-content: space-between;
-	/* flex-direction: row-reverse; */
+	align-items: center;
 	border-radius: 0.25rem;
-	padding: 0.25rem;
+	padding: 0.25rem 0.25rem 0.25rem 0.75rem;
 	margin: 1rem 0rem 0rem 0rem;
 }
 
