@@ -2,11 +2,11 @@
  * DOM elements
  */
 
-const passwordEl = document.querySelector('#password');
+const generatedPasswordEl = document.querySelector('#password');
 const copyBtnEl = document.querySelector('.copyBtn');
-const pLengthEl = document.querySelector('#length');
+const pwLengthEl = document.querySelector('#length');
 const generateBtnEl = document.querySelector('#generate');
-const inputEl = document.querySelectorAll("input[type='checkbox']");
+const inputsEl = document.querySelectorAll("input[type='checkbox']");
 
 /**
  * Characters for password
@@ -26,24 +26,26 @@ const characters = {
 
 const generatePassword = () => {
 	let password = '';
-	let pLength = pLengthEl.value;
-	let selectedInputs = '';
+	let pwLength = pwLengthEl.value;
+	let selectedInputChars = '';
 
-	inputEl.forEach(inputCheckbox => {
+	inputsEl.forEach(inputCheckbox => {
 		if (inputCheckbox.checked) {
-			selectedInputs += characters[inputCheckbox.name];
+			selectedInputChars += characters[inputCheckbox.name];
 		}
 	});
 
-	if (!selectedInputs) {
-		passwordEl.innerText = 'Please select character type';
+	if (!selectedInputChars) {
+		generatedPasswordEl.innerText = 'Please select character type';
 	} else {
-		for (let i = 0; i < pLength; i++) {
+		for (let i = 0; i < pwLength; i++) {
 			password +=
-				selectedInputs[Math.floor(Math.random() * selectedInputs.length)];
+				selectedInputChars[
+					Math.floor(Math.random() * selectedInputChars.length)
+				];
 		}
 
-		passwordEl.innerText = password;
+		generatedPasswordEl.innerText = password;
 	}
 };
 
@@ -61,6 +63,6 @@ copyBtnEl.addEventListener('click', () => {
 	const clipboard = navigator.clipboard;
 
 	clipboard
-		.writeText(passwordEl.innerText)
+		.writeText(generatedPasswordEl.innerText)
 		.then(() => alert('Password has been copied to clipboard'));
 });
