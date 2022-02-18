@@ -3,6 +3,7 @@
  */
 
 const generatedPasswordEl = document.querySelector('#password');
+const passwordContainerEl = document.querySelector('.passwordContainer');
 const copyBtnEl = document.querySelector('.copyBtn');
 const pwLengthEl = document.querySelector('#length');
 const generateBtnEl = document.querySelector('#generate');
@@ -28,6 +29,10 @@ const generatePassword = () => {
 	let password = '';
 	let pwLength = pwLengthEl.value;
 	let selectedInputChars = '';
+
+	// const generatedPasswordEl = document.createElement('span');
+	// generatedPasswordEl.id = 'password';
+	// passwordContainerEl.insertAdjacentElement('afterbegin', generatedPasswordEl);
 
 	inputsEl.forEach(inputCheckbox => {
 		if (inputCheckbox.checked) {
@@ -55,6 +60,9 @@ const generatePassword = () => {
 
 // Generates password on click
 generateBtnEl.addEventListener('click', () => {
+	// if (document.getElementById('password')) {
+	// 	document.getElementById('password').remove();
+	// }
 	generatePassword();
 });
 
@@ -62,7 +70,14 @@ generateBtnEl.addEventListener('click', () => {
 copyBtnEl.addEventListener('click', () => {
 	const clipboard = navigator.clipboard;
 
-	clipboard
-		.writeText(generatedPasswordEl.innerText)
-		.then(() => alert('Password has been copied to clipboard'));
+	if (
+		generatedPasswordEl.innerText === 'Please select character type' ||
+		generatedPasswordEl.innerText === ''
+	) {
+		alert(`There's nothing to copy. Please generate password first!`);
+	} else {
+		clipboard
+			.writeText(generatedPasswordEl.innerText)
+			.then(() => alert(`Password has been copied to clipboard`));
+	}
 });
