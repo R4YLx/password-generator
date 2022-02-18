@@ -30,10 +30,6 @@ const generatePassword = () => {
 	let pwLength = pwLengthEl.value;
 	let selectedInputChars = '';
 
-	// const generatedPasswordEl = document.createElement('span');
-	// generatedPasswordEl.id = 'password';
-	// passwordContainerEl.insertAdjacentElement('afterbegin', generatedPasswordEl);
-
 	inputsEl.forEach(inputCheckbox => {
 		if (inputCheckbox.checked) {
 			selectedInputChars += characters[inputCheckbox.name];
@@ -60,9 +56,6 @@ const generatePassword = () => {
 
 // Generates password on click
 generateBtnEl.addEventListener('click', () => {
-	// if (document.getElementById('password')) {
-	// 	document.getElementById('password').remove();
-	// }
 	generatePassword();
 });
 
